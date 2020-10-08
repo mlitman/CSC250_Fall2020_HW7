@@ -25,6 +25,7 @@ public class BibleBook extends Object
 	{
 		return this.summary.toLowerCase().indexOf(searchTerm.toLowerCase()) != -1;
 	}
+	
 	public int getNumber_of_chapters() 
 	{
 		return number_of_chapters;
