@@ -26,6 +26,58 @@ public class BibleBookCollection
 		catch(Exception e) { e.printStackTrace();}
 	}
 	
+	//sort theBooks on chapter count from smallest to largest
+	public void bubbleSortOnNumberOfChapters()
+	{
+		BibleBook temp;
+		int numberOfSwaps = -1;
+		while(numberOfSwaps != 0)
+		{
+			numberOfSwaps = 0;
+			for(int i = 0; i < this.theBooks.size()-1; i++)
+			{
+				//should we swap bucket i with bucket i + 1?
+				if(this.theBooks.get(i).getNumber_of_chapters() > this.theBooks.get(i+1).getNumber_of_chapters())
+				{
+					temp = this.theBooks.get(i);
+					this.theBooks.set(i, this.theBooks.get(i+1));
+					this.theBooks.set(i+1, temp);
+					numberOfSwaps++;
+				}
+			}
+		}
+	}
+	
+	//sort theBooks on chapter count from smallest to largest
+	public void bubbleSortOnBookName()
+	{
+		BibleBook temp;
+		int numberOfSwaps = -1;
+		while(numberOfSwaps != 0)
+		{
+			numberOfSwaps = 0;
+			for(int i = 0; i < this.theBooks.size()-1; i++)
+			{
+				//should we swap bucket i with bucket i + 1?
+				if(this.theBooks.get(i).getName().compareTo(this.theBooks.get(i+1).getName()) > 0)
+				{
+					temp = this.theBooks.get(i);
+					this.theBooks.set(i, this.theBooks.get(i+1));
+					this.theBooks.set(i+1, temp);
+					numberOfSwaps++;
+				}
+			}
+		}
+	}
+	
+	public void display()
+	{
+		for(BibleBook b : this.theBooks)
+		{
+			b.display();
+		}
+	}
+	
 	public void addBibleBook(BibleBook b)
 	{
 		this.theBooks.add(b);
